@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mohammad Ashiq — A Story, A Future</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   TOKENS
+   ============================================================ */
+:root{
+  --ink:#0B2A2E;
+  --ink-2:#0E3338;
+  --teal:#164045;
+  --teal-soft:#1F4F55;
+  --gold:#C8A24A;
+  --gold-soft:#E2C77A;
+  --gold-dim:#8C7339;
+  --cream:#F6F1E2;
+  --cream-dim:#E7DCC0;
+  --maroon:#7C3B33;
+  --line:rgba(200,162,74,0.22);
+  --shadow:0 30px 60px -20px rgba(0,0,0,0.45);
+  --display:'Cormorant Garamond', serif;
+  --body:'Jost', sans-serif;
+  --arabic:'Amiri', serif;
+  --ease:cubic-bezier(.16,.8,.3,1);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:var(--body);
+  background:var(--cream);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+img{max-width:100%;display:block;}
+a{color:inherit;text-decoration:none;}
+section{position:relative;}
+::selection{background:var(--gold-soft);color:var(--ink);}
+
+.eyebrow{
+  font-family:var(--body);
+  font-size:.72rem;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold-dim);
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  gap:.6rem;
+}
+.eyebrow .rosette-mini{width:14px;height:14px;flex:none;}
+.eyebrow.on-dark{color:var(--gold-soft);}
+
+h1,h2,h3{font-family:var(--display);font-weight:600;letter-spacing:.01em;}
+.section-title{
+  font-size:clamp(2.1rem,4.4vw,3.4rem);
+  margin:.5rem 0 1.4rem;
+  line-height:1.08;
+}
+.section-title em{font-style:i
+<truncated 41046 bytes>
+.isIntersecting){ e.target.classList.add('in'); }
+  });
+}, {threshold:.18});
+document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => revealObs.observe(el));
+
+/* ---------- timeline node active state ---------- */
+const tObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('in'); });
+}, {threshold:.5});
+document.querySelectorAll('.t-item').forEach(el => tObs.observe(el));
+
+/* ---------- age counter ---------- */
+const ageEl = document.getElementById('ageCounter');
+let counted = false;
+const ageObs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting && !counted){
+      counted = true;
+      let n = 0;
+      const target = 26;
+      const step = () => {
+        n += 1;
+        ageEl.textContent = n;
+        if(n < target) requestAnimationFrame(step);
+      };
+      step();
+    }
+  });
+}, {threshold:.6});
+if(ageEl) ageObs.observe(ageEl);
+
+/* ---------- hero parallax ---------- */
+const heroBg = document.querySelector('#home .bg');
+window.addEventListener('scroll', () => {
+  const y = window.scrollY;
+  if(heroBg) heroBg.style.transform = `scale(1.12) translateY(${y*0.18}px)`;
+});
+</script>
+</body>
+</html>
+</USER_REQUEST>
+<ADDITIONAL_METADATA>
+The current local time is: 2026-06-18T14:30:34+05:30.
+
+The user's current state is as follows:
+Active Document: c:\Users\lohit\Downloads\Mportfolio\index.html (LANGUAGE_HTML)
+Cursor is on line: 1
+Other open documents:
+- c:\Users\lohit\Downloads\Mportfolio\vite.config.ts (LANGUAGE_TYPESCRIPT)
+- c:\Users\lohit\Downloads\Mportfolio\src\components\Footer.tsx (LANGUAGE_TSX)
+- c:\Users\lohit\Downloads\Mportfolio\src\components\Hero.tsx (LANGUAGE_TSX)
+</ADDITIONAL_METADATA>
+<USER_SETTINGS_CHANGE>
+The user changed setting `Model Selection` from Gemini 3.5 Flash (High) to Gemini 3.1 Pro (High). No need to comment on this change if the user doesn't ask about it. If reporting what model you are, please use a human readable name instead of the exact string.
+</USER_SETTINGS_CHANGE>
