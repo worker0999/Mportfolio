@@ -1,15 +1,35 @@
+import { useState, useEffect } from 'react';
+
 export default function Gallery() {
   const images = [
     { src: '/assets/3.jpeg', cap: 'Beach Ride', isTall: true },
-    { src: '/assets/5.jpeg', cap: 'By the Marina', isTall: false },
     { src: '/assets/12.jpeg', cap: 'An Evening Out', isTall: false },
+    { src: '/assets/14.jpeg', cap: 'By the Marina', isTall: false },
     { src: '/assets/7.jpeg', cap: 'On the Water', isTall: true },
-    { src: '/assets/9.jpeg', cap: 'Pier Sunset', isTall: false },
     { src: '/assets/10.jpeg', cap: 'Quiet Shoreline', isTall: false },
+    { src: '/assets/15.jpeg', cap: 'Pier Sunset', isTall: false },
     { src: '/assets/11.jpeg', cap: 'Beach Ride', isTall: true },
-    { src: '/assets/13.jpeg', cap: 'An Evening Out', isTall: false },
-    { src: '/assets/8.jpeg', cap: 'By the Marina', isTall: false },
+    { src: '/assets/16.jpeg', cap: 'Golden Hour', isTall: false },
   ];
+
+  const [selectedImg, setSelectedImg] = useState<{ src: string; cap: string } | null>(null);
+
+  // Close on Escape key
+  useEffect(() => {
+    const handleKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setSelectedImg(null);
+    };
+    if (selectedImg) {
+      document.addEventListener('keydown', handleKey);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.removeEventListener('keydown', handleKey);
+      document.body.style.overflow = '';
+    };
+  }, [selectedImg]);
 
   return (
     <section id="gallery" className="on-dark">
@@ -23,13 +43,35 @@ export default function Gallery() {
         <h2 className="section-title reveal">Portfolio <em>Highlights</em></h2>
         <div className="gallery-grid reveal-stagger">
           {images.map((img, idx) => (
-            <div key={idx} className={`g-item ${img.isTall ? 'tall' : ''}`}>
+            <div
+              key={idx}
+              className={`g-item ${img.isTall ? 'tall' : ''}`}
+              style={{ cursor: 'pointer' }}
+              onClick={() => setSelectedImg(img)}
+            >
               <img src={img.src} alt={img.cap} />
               <div className="cap">{img.cap}</div>
             </div>
           ))}
         </div>
       </div>
+
+      {/* Lightbox */}
+      {selectedImg && (
+        <div className="lb-overlay" onClick={() => setSelectedImg(null)}>
+          <button
+            className="lb-close"
+            onClick={(e) => { e.stopPropagation(); setSelectedImg(null); }}
+            aria-label="Close"
+          >
+            ✕
+          </button>
+          <div className="lb-content" onClick={(e) => e.stopPropagation()}>
+            <img src={selectedImg.src} alt={selectedImg.cap} className="lb-img" />
+            <div className="lb-cap">{selectedImg.cap}</div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

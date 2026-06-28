@@ -15,23 +15,14 @@ export default function Lifestyle() {
         <div className="life-grid reveal-stagger">
           {/* Card 1: Travel Image */}
           <div className="life-card">
-            <img src="/assets/6.jpeg" alt="Travel" />
+            <img src="/assets/7.jpeg" alt="Travel" />
             <div className="tag">Travel</div>
           </div>
 
-          {/* Card 2: Fitness Dumbbell Icon */}
-          <div className="life-card icon-card">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--gold-soft)"
-              strokeWidth="1.6"
-              className="w-[54px] h-[54px]"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M6 7v10M2 9v6M18 7v10M22 9v6M6 12h12" />
-            </svg>
-            <span>Fitness</span>
+          {/* Card 2: Fitness Image */}
+          <div className="life-card">
+            <img src="/assets/16.jpeg" alt="Fitness" />
+            <div className="tag">Fitness</div>
           </div>
 
           {/* Card 3: Cultures Image */}
@@ -40,19 +31,10 @@ export default function Lifestyle() {
             <div className="tag">Cultures</div>
           </div>
 
-          {/* Card 4: Family Time Icon */}
-          <div className="life-card icon-card">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="var(--gold-soft)"
-              strokeWidth="1.6"
-              className="w-[54px] h-[54px]"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M4 21v-6a4 4 0 014-4h8a4 4 0 014 4v6M8 11V7a4 4 0 118 0v4" />
-            </svg>
-            <span>Family Time</span>
+          {/* Card 4: Family Time Image */}
+          <div className="life-card">
+            <img src="/assets/14.jpeg" alt="Family Time" />
+            <div className="tag">Family Time</div>
           </div>
         </div>
       </div>
