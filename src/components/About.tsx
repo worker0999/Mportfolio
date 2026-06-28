@@ -5,7 +5,7 @@ export default function About() {
         {/* Left Column: Photo with Corner Frames */}
         <div className="about-photo reveal">
           <div className="frame">
-            <img src="/assets/1.jpeg" alt="Mohammad Ashiq" />
+            <img src="/assets/13.jpeg" alt="Mohammad Ashiq" />
           </div>
           <div className="corner tl" />
           <div className="corner br" />

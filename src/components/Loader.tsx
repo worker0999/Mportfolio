@@ -4,15 +4,15 @@ export default function Loader() {
   const [status, setStatus] = useState<'visible' | 'exit' | 'hide'>('visible');
 
   useEffect(() => {
-    // Keep loader visible for 2 seconds to showcase the animation
+    // Keep loader visible for 2.5 seconds to showcase the cinematic fade
     const timerExit = setTimeout(() => {
       setStatus('exit');
-    }, 2000);
+    }, 2500);
 
-    // Fully hide/unmount/remove loader after panels slide open (takes 1.1s in CSS transition)
+    // Fully hide/unmount/remove loader after fade transition (takes 1.2s in CSS transition)
     const timerHide = setTimeout(() => {
       setStatus('hide');
-    }, 3100);
+    }, 3700);
 
     return () => {
       clearTimeout(timerExit);
@@ -24,19 +24,15 @@ export default function Loader() {
 
   return (
     <div id="loader" className={status === 'exit' ? 'exit' : ''}>
-      <div className="panel left" />
-      <div className="panel right" />
+      <div className="loader-bg" style={{ backgroundImage: "url('/assets/13.jpeg')" }} />
+      <div className="loader-overlay" />
       <div className="content">
-        <svg className="rosette-draw" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-          <path
-            className="rosette"
-            d="M 100.0,12.0 L 116.07,61.2 L 162.23,37.77 L 138.8,83.93 L 188.0,100.0 L 138.8,116.07 L 162.23,162.23 L 116.07,138.8 L 100.0,188.0 L 83.93,138.8 L 37.77,162.23 L 61.2,116.07 L 12.0,100.0 L 61.2,83.93 L 37.77,37.77 L 83.93,61.2 Z"
-          />
-        </svg>
-        <div className="bismillah">﷽</div>
-        <div className="loader-name">Mohammad Ashiq</div>
-        <div className="loader-bar">
-          <div className="loader-bar-fill" />
+        <div className="loader-portrait-wrapper">
+          <img src="/assets/13.jpeg" alt="Mohammad Ashiq" className="loader-portrait" />
+        </div>
+        <div className="loader-text-group">
+          <div className="bismillah">﷽</div>
+          <div className="loader-name">Mohammad Ashiq</div>
         </div>
       </div>
     </div>
